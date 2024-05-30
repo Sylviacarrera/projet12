@@ -1,0 +1,48 @@
+@import '../style/variable.scss'; 
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-black;
+  color: $color-white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: $box-shadow-dark; /* Utilisez la variable d'ombre */
+}
+
+.logo {
+  margin-bottom: $sidebar-logo-margin-bottom;
+  padding: 0px;
+}
+
+.logo img {
+  width: $sidebar-logo-width; /* Utilisez la variable de taille du logo */
+  height: auto; /* Assurez-vous que l'image conserve ses proportions */
+  margin-left: $sidebar-logo-margin-left;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-links a img {
+  object-fit: contain;
+}
+
+.copyright {
+  font-family: $font-family-main;
+  font-size: $font-size-copyright;
+  font-weight: $font-weight-copyright;
+  line-height: $line-height-copyright;
+  text-align: left;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  margin-top: $sidebar-copyright-margin-top;
+}

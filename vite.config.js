@@ -1,10 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  server: {
-    port: 8081,
-    open: true
-  },
-  plugins: [react()]
+const API_URLS = {
+  development: 'http://localhost:3001',
+  production: 'http://localhost:3000'
+}
+
+export default defineConfig(({ mode }) => {
+  console.log(`vite running in mode ${mode}`)
+
+  return {
+    plugins: [react()],
+    define: {
+      URL_API: JSON.stringify(API_URLS[mode])
+    }
+  }
 });

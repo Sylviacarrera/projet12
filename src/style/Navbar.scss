@@ -1,0 +1,29 @@
+@import '../style/variable.scss'; 
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $color-black;
+  color: $color-white;
+  padding: $navbar-padding;
+  position: fixed;
+  top: 0;
+  left: $sidebar-width; /* Pour compenser la largeur de la sidebar */
+  right: 0;
+  box-shadow: $box-shadow; /* Utilisez la variable d'ombre */
+}
+
+.navbar a {
+  color: $color-white;
+  font-family: $font-family-main;
+  font-size: $font-size-nav;
+  font-weight: $font-weight-nav;
+  line-height: $line-height-nav;
+  text-align: left;
+  text-decoration: none;
+  margin-left: 12%;
+}
+
+.navbar .active {
+  text-decoration: underline;
+}
