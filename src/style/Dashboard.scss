@@ -1,0 +1,26 @@
+@import '../style/variable.scss'; 
+
+.dashboard-container {
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px; /* Taille de police similaire à l'exemple */
+  font-weight: 700;
+  line-height: 58px; /* Ajustez la hauteur de ligne pour le titre */
+  text-align: left;
+}
+
+.red-text {
+  color: $color-red;
+}
+
+.felicitation-message {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px; /* Taille de police pour le message de félicitations */
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  margin-top: 10px; /* Espace au-dessus du message */
+}

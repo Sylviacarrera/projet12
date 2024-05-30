@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../style/Dashboard.scss';
 
 const Dashboard = () => {
     const [user, setUser] = useState({})
@@ -10,15 +11,15 @@ const Dashboard = () => {
         })
     })
     }, [])
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      {
-      user.userInfos ?
-      <p>{user.userInfos.lastName}</p>
-      :<></>
-      }
-    </div>
+    return (
+      <div className="dashboard-container">
+        <h1>
+          Bonjour <span className="red-text">{user.userInfos?.firstName}</span>
+        </h1>
+        <p className="felicitation-message">
+          Félicitations ! Vous avez explosé vos objectifs hier <span role="img" aria-label="emoji">👏</span>
+        </p>
+      </div>
   );
 };
 
