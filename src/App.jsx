@@ -1,17 +1,11 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Homepage from './Pages/Homepage';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Dashboard from './Pages/Dashboard';
-import '../public/App.css';
+import NotFoundPage from './Pages/Notfoundpage';
 
-const WorkInProgress = () => (
-  <div>
-    <h1>Work in Progress</h1>
-    <p>Cette page est en cours de construction.</p>
-  </div>
-); 
 function App() {
   return (
     <Router>
@@ -20,9 +14,9 @@ function App() {
         <div className="main-content">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<div>404 - Page Not Found</div>} />
+            <Route path="/" element={<Navigate to="/dashboard/12" />} />
+            <Route path="/dashboard/:id" element={<Dashboard />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>
