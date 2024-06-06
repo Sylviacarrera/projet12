@@ -1,0 +1,37 @@
+@import '../style/variable.scss';
+
+.activity-container {
+  margin-top: 20px;
+  background: $color-grey;
+  padding: 20px; 
+  border-radius: 10px; 
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.activity-container h2 {
+  margin: 0;
+  font-family: $font-family-main;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-left: 20px;
+}
+
+.custom-tooltip {
+  background: $color-red;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip p {
+  margin: 0;
+  font-size: 12px;
+  color: $color-grey;
+}

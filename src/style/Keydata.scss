@@ -1,0 +1,72 @@
+@import '../style/variable.scss';
+
+.keydata-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.keydata-item {
+  display: flex;
+  align-items: center;
+  background-color: $color-grey;
+  border-radius: 5px;
+  padding: 10px 20px;
+  height: 100px;
+  box-shadow: 0 1px 1px $color-shadow;
+}
+
+.keydata-icon {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  &.calories {
+    background-color: $color-calories;
+  }
+
+  &.proteines {
+    background-color: $color-proteines;
+  }
+
+  &.glucides {
+    background-color: $color-glucides;
+  }
+
+  &.lipides {
+    background-color: $color-lipides;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.keydata-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.keydata-item p:first-child {
+  font-family: $font-family-main;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: $color-dark;
+  margin-bottom: 0;
+}
+
+.keydata-item p:last-child {
+  font-family: $font-family-main;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: $color-light;
+}

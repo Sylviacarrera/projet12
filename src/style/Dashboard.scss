@@ -1,18 +1,20 @@
-@import '../style/variable.scss'; 
+@import '../style/variable.scss';
 
 .dashboard-container {
   padding: 20px;
   position: absolute;
   top: 120px;
   left: 200px;
+  right: 20px;
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 48px; 
+  font-family: $font-family-main;
+  font-size: 48px;
   font-weight: 700;
-  line-height: 58px; 
+  line-height: 58px;
   text-align: left;
+  color: $color-black;
 }
 
 .red-text {
@@ -20,12 +22,28 @@ h1 {
 }
 
 .felicitation-message {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-family-main;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  margin-top: 10px; 
+  margin-top: 10px;
+  color: $color-black;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.activity-container {
+  flex: 2; /* Adjusts the size of the Activity component */
+  margin-right: 20px;
+}
+
+.keydata-container {
+  flex: 1; /* Adjusts the size of the Keydata component */
 }
 
 .loader {
