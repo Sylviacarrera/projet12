@@ -1,4 +1,5 @@
-// src/style/Performance.scss
+@import '../style/variable.scss';
+
 .performance-container {
     border-radius: 5px;
     padding: 20px;
@@ -6,5 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:$color-dark ;
   }
   

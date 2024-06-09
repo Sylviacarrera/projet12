@@ -1,36 +1,52 @@
-// src/components/Performance.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Radar, 
-  RadarChart, 
-  PolarGrid, 
-  PolarAngleAxis, 
-  ResponsiveContainer
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  Tooltip,
 } from 'recharts';
-import '../style/Performance.scss';
+import '../style/Averagesession.scss';
 
-const Performance = ({ data }) => {
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p>{`${payload[0].value} min`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};
+
+const AverageSession = ({ sessions }) => {
   return (
-    <div className="performance-container">
-      <ResponsiveContainer width="100%" height={300}>
-        <RadarChart data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="kind" tick={{ fontSize: 12, fontWeight: 500 }} />
-          <Radar name="Performance" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.6} />
-        </RadarChart>
+    <div className="average-session-container">
+      <h2>Durée moyenne des sessions</h2>
+      <ResponsiveContainer width="100%" height={200}>
+        <LineChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+          <XAxis dataKey="day" tickLine={false} axisLine={false} />
+          <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 0 }} />
+          <Line type="monotone" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={{ r: 8, stroke: '#E60000', strokeWidth: 8 }} />
+        </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-Performance.propTypes = {
-  data: PropTypes.arrayOf(
+AverageSession.propTypes = {
+  sessions: PropTypes.arrayOf(
     PropTypes.shape({
-      kind: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
+      day: PropTypes.string.isRequired,
+      sessionLength: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
 
-export default Performance;
+export default AverageSession;

@@ -5,6 +5,7 @@ import Keydata from '../components/Keydata';
 import Activity from '../components/Activity';
 import AverageSession from '../components/Averagesession';
 import Performance from '../components/Performance';
+import Score from '../components/Score';
 import { getUser, getUserActivity, getUserSession, getUserPerformance } from '../utils/apiHandler';
 
 const Dashboard = () => {
@@ -23,6 +24,7 @@ const Dashboard = () => {
     } else {
       console.log('Fetching data for user:', id);
       setLoading(true);
+      setError(null); // Reset error state before fetching
       Promise.all([
         getUser(id),
         getUserActivity(id),
@@ -58,12 +60,14 @@ const Dashboard = () => {
         <div className="left-content">
           <Activity sessions={activity} />
           <div className="bottom-content">
-          <AverageSession sessions={averageSessions} />
-          <Performance data={performance} />
+            <AverageSession sessions={averageSessions} />
+            <Performance data={performance} />
+            <Score score={user.score} />
           </div>
         </div>
         <div className="right-content">
           <Keydata keyDatas={user.keyDatas} />
+        
         </div>
       </div>
     </div>

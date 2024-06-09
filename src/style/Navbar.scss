@@ -11,6 +11,7 @@
   left: $sidebar-width; /* Pour compenser la largeur de la sidebar */
   right: 0;
   box-shadow: $box-shadow; /* Utilisez la variable d'ombre */
+  z-index: 1;
 }
 
 .navbar a {
