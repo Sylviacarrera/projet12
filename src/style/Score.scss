@@ -14,10 +14,13 @@
   .score-title {
     position: absolute;
     top: 20px;
-    left: 20px;
-    font-size: 14px;
+    left: 50px;
+    font-family:$font-family-main ;
+    font-size: 20px;
     font-weight: 500;
-    color: #74798C;
+    line-height: 24px;
+    text-align: left;
+
   }
   
   .score-content {
@@ -29,14 +32,21 @@
   }
   
   .score-percentage {
+    font-family: $font-family-main;
     font-size: 26px;
     font-weight: 700;
-    color: #282D30;
+    line-height: 26px;
+    text-align: center;
+    margin: 0;
+
   }
   
   .score-text {
-    font-size: 14px;
-    font-weight: 500;
-    color: #74798C;
+    font-family:$font-family-main;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+
   }
   

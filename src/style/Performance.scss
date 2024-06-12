@@ -1,12 +1,29 @@
 @import '../style/variable.scss';
 
 .performance-container {
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:$color-dark ;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-dark;
+
+  .recharts-polar-angle-axis-tick {
+    text {
+      fill: #FFF;
+      font-size: 12px;
+      font-weight: 500;
+    }
   }
-  
+
+  .recharts-polar-grid {
+    line {
+      stroke: none;
+    }
+  }
+
+  .recharts-radar {
+    fill-opacity: 0.6;
+  }
+}

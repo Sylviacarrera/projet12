@@ -51,13 +51,18 @@ const Activity = ({ sessions }) => {
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
-          <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 12 }} axisLine={false} />
+          <XAxis 
+            dataKey="day" 
+            tickLine={false} 
+            tick={{ fontSize: 12 }} 
+            axisLine={false} 
+          />
           <YAxis
             yAxisId="left"
             orientation="left"
             stroke="#FF0000"
             tick={{ fontSize: 12 }}
-            hide // Hide the left Y axis for calories
+            hide
           />
           <YAxis
             yAxisId="right"
@@ -65,10 +70,10 @@ const Activity = ({ sessions }) => {
             stroke="#282D30"
             tick={{ fontSize: 12 }}
             domain={[69, 71]}
-            axisLine={false} // Hide the axis line
-            tickLine={false} // Hide tick marks
-            interval={0} // Show all ticks
-            tickFormatter={(tick) => (Number.isInteger(tick) ? tick : '')} // Show only integer ticks
+            axisLine={false}
+            tickLine={false}
+            interval={0}
+            tickFormatter={(tick) => (Number.isInteger(tick) ? tick : '')}
           />
           <Tooltip content={<CustomTooltip />} />
           <Legend
@@ -83,8 +88,20 @@ const Activity = ({ sessions }) => {
               { value: 'Calories brûlées (kcal)', type: 'circle', color: '#FF0000' },
             ]}
           />
-          <Bar yAxisId="left" dataKey="calories" fill="#FF0000" barSize={10} radius={[10, 10, 0, 0]} />
-          <Bar yAxisId="right" dataKey="kilogram" fill="#282D30" barSize={10} radius={[10, 10, 0, 0]} />
+          <Bar 
+            yAxisId="left" 
+            dataKey="calories" 
+            fill="#FF0000" 
+            barSize={10} 
+            radius={[10, 10, 0, 0]} 
+          />
+          <Bar 
+            yAxisId="right" 
+            dataKey="kilogram" 
+            fill="#282D30" 
+            barSize={10} 
+            radius={[10, 10, 0, 0]} 
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
