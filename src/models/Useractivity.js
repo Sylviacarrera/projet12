@@ -8,7 +8,7 @@ class UserActivity {
     constructor(data) {
         this.userId = data.userId;
         this.sessions = data.sessions.map(session => ({
-            day: session.day.split('-')[2], // Extracting day from the date
+            day: new Date(session.day).getDate(), // Extracting day from the date
             kilogram: session.kilogram,
             calories: session.calories,
         }));

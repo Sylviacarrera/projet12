@@ -15,8 +15,8 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p>{`${payload[1].value}kg`}</p>
-        <p>{`${payload[0].value}Kcal`}</p>
+        <p>{`${payload[0].value}kg`}</p>
+        <p>{`${payload[1].value}Kcal`}</p>
       </div>
     );
   }
@@ -54,8 +54,8 @@ const Activity = ({ sessions }) => {
           <XAxis 
             dataKey="day" 
             tickLine={false} 
-            tick={{ fontSize: 12 }} 
-            axisLine={false} 
+            tick={{ fontSize: 12, fill: '#000' }} 
+            axisLine={{ stroke: '#000' }} 
           />
           <YAxis
             yAxisId="left"
@@ -89,16 +89,16 @@ const Activity = ({ sessions }) => {
             ]}
           />
           <Bar 
-            yAxisId="left" 
-            dataKey="calories" 
-            fill="#FF0000" 
+            yAxisId="right" 
+            dataKey="kilogram" 
+            fill="#282D30" 
             barSize={10} 
             radius={[10, 10, 0, 0]} 
           />
           <Bar 
-            yAxisId="right" 
-            dataKey="kilogram" 
-            fill="#282D30" 
+            yAxisId="left" 
+            dataKey="calories" 
+            fill="#FF0000" 
             barSize={10} 
             radius={[10, 10, 0, 0]} 
           />
@@ -111,7 +111,7 @@ const Activity = ({ sessions }) => {
 Activity.propTypes = {
   sessions: PropTypes.arrayOf(
     PropTypes.shape({
-      day: PropTypes.string.isRequired,
+      day: PropTypes.number.isRequired,
       kilogram: PropTypes.number.isRequired,
       calories: PropTypes.number.isRequired,
     })

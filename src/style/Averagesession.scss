@@ -1,60 +1,69 @@
 @import '../style/variable.scss';
 
 .average-session-container {
-    background: #FF0000;
-    border-radius: 5px;
-    padding: 20px;
-    color: #FFF;
-    position: relative;
-  
-    h2 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-  
-    .tooltip-content {
-      background: #FFF;
-      z-index: 1000;
-      padding-left: 5px;
-      padding-right: 5px;
-    }
+  background: #FF0000;
+  border-radius: 5px;
+  padding: 20px;
+  color: #FFF;
+  position: relative;
 
-    .tooltip-text {
-      color: #000;
-      font-size: 12px;
-      font-family: $font-family-main;
-      font-weight: 500;
-      line-height: 24px;
-      text-align: center;
-    }
+  h2 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
 
-    .recharts-active-dot circle {
-      fill: #FFF;
-      stroke: #E60000;
-      stroke-width: 8;
-    }
+  .tooltip-content {
+    background: #FFF;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 
-    .recharts-line-curve {
-        stroke: #FFF;
-        stroke-width: 2;
-    }
+  .tooltip-text {
+    color: #000;
+    font-size: 12px;
+    font-family: $font-family-main;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+  }
 
-    .recharts-tooltip-cursor {
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        animation: colorChange 1s infinite alternate;
-    }
+  .recharts-active-dot circle {
+    fill: #FFF;
+    stroke: #E60000;
+    stroke-width: 8;
+  }
+
+  .recharts-line-curve {
+    stroke: #FFF;
+    stroke-width: 2;
+  }
+
+  .recharts-tooltip-cursor {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .recharts-tooltip-cursor::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 2px;
+    background: #E60000;
+    animation: colorChange 0.5s infinite alternate;
+  }
 }
 
 @keyframes colorChange {
-  0% { stroke: #FF0000; }
-  100% { stroke: #E60000; }
+  0% { background: #FF0000; }
+  100% { background: #E60000; }
 }
 
 .recharts-cartesian-axis-tick {
-    transform: translateY(10px);
-    text {
-        fill: #FFF;
-    }
+  transform: translateY(10px);
+  text {
+    fill: #FFF;
+  }
 }

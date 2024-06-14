@@ -6,6 +6,7 @@ import {
   Line,
   XAxis,
   Tooltip,
+  Rectangle
 } from 'recharts';
 import '../style/Averagesession.scss';
 
@@ -26,6 +27,24 @@ CustomTooltip.propTypes = {
   payload: PropTypes.array,
 };
 
+const CustomCursor = ({ points, width, height }) => {
+  return (
+    <Rectangle
+      fill="#000000"
+      opacity={0.2}
+      x={points[0].x}
+      width={width - points[0].x}
+      height={height}
+    />
+  );
+};
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
 const AverageSession = ({ sessions }) => {
   return (
     <div className="average-session-container">
@@ -33,8 +52,8 @@ const AverageSession = ({ sessions }) => {
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <XAxis dataKey="day" tickLine={false} axisLine={false} />
-          <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 0 }} />
-          <Line type="monotone" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={{ r: 8, stroke: '#E60000', strokeWidth: 8 }} />
+          <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
+          <Line type="natural" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={{ r: 8, stroke: '#E60000', strokeWidth: 8 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

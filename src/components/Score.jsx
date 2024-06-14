@@ -37,7 +37,7 @@ const Score = ({ score }) => {
       <div className="score-overlay"></div>
       <div className="score-content">
         <p className="score-percentage">{score * 100}%</p>
-        <p className="score-text">de votre objectif</p>
+        <p className="score-text">de votre<br />objectif</p>
       </div>
     </div>
   );
