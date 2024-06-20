@@ -54,6 +54,13 @@
     background: #E60000;
     animation: colorChange 0.5s infinite alternate;
   }
+
+  .recharts-cartesian-axis-tick {
+    transform: translateY(10px);
+    text {
+      fill: #FFF;
+    }
+  }
 }
 
 @keyframes colorChange {
@@ -62,8 +69,8 @@
 }
 
 .recharts-cartesian-axis-tick {
-  transform: translateY(10px);
   text {
     fill: #FFF;
+    transform: translateY(10px);
   }
 }

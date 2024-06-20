@@ -50,8 +50,8 @@ const AverageSession = ({ sessions }) => {
     <div className="average-session-container">
       <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-          <XAxis dataKey="day" tickLine={false} axisLine={false} />
+        <LineChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
+          <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ dy: 20 }} />
           <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
           <Line type="natural" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={{ r: 8, stroke: '#E60000', strokeWidth: 8 }} />
         </LineChart>
