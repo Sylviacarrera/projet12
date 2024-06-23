@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
   LineChart,
   Line,
   XAxis,
+  YAxis,
   Tooltip,
   Rectangle
 } from 'recharts';
@@ -13,50 +13,69 @@ import '../style/Averagesession.scss';
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="tooltip-content">
-        <p className="tooltip-text">{`${payload[0].value} min`}</p>
+      <div
+        className="custom-tooltip"
+        style={{
+          backgroundColor: '#FFFFFF',
+          color: '#000000',
+          fontSize: '8px',
+          fontWeight: '500',
+          textAlign: 'center',
+          lineHeight: '24px',
+          fontStyle: 'normal',
+          width: '39px',
+          height: '25px',
+          borderColor: 'transparent',
+        }}
+      >
+        <p className="label">{`${payload[0].value} min`}</p>
       </div>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
 CustomTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 };
 
-const CustomCursor = ({ points, width, height }) => {
+const CustomCursor = ({ points }) => {
   return (
     <Rectangle
       fill="#000000"
       opacity={0.2}
-      x={points[0].x}
-      width={width - points[0].x}
-      height={height}
+      x={points[1].x}
+      width={1000}
+      height={700}
     />
   );
 };
 
 CustomCursor.propTypes = {
-  points: PropTypes.array,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  points: PropTypes.array
 };
 
 const AverageSession = ({ sessions }) => {
   return (
-    <div className="average-session-container">
-      <h2>Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={sessions} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
-          <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ dy: 20 }} />
-          <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
-          <Line type="natural" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={{ r: 8, stroke: '#E60000', strokeWidth: 8 }} />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
+    <ResponsiveContainer width="100%" height="100%" className="average-session-container">
+      <LineChart data={sessions} width={500}
+        height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ dy: 20 }} tickMargin={-20} />
+        <YAxis hide={true} padding={{ top: 80, bottom: 40 }} />
+        <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} wrapperStyle={{ outline: 'none' }} />
+        <Line
+          type="natural"
+          dataKey="sessionLength"
+          dot={false}
+          stroke="#FFFFFF"
+          strokeWidth={2}
+          activeDot={{ r: 4 }}
+          legendType="none"
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };
 

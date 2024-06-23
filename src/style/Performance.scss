@@ -2,12 +2,14 @@
 
 .performance-container {
   border-radius: 5px;
-  padding: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $color-dark;
+  height: 300px;
+  min-width: 354px;
+  width: 30%;
 
   .recharts-polar-angle-axis-tick {
     text {

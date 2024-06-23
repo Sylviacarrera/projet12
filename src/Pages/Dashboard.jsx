@@ -36,12 +36,10 @@ const Dashboard = () => {
           setActivity(userActivity.sessions);
           setAverageSessions(userSessions.sessions);
           setPerformance(userPerformance.data);
-          setLoading(false);
         })
-        .catch(error => {
+        .catch(() => {
           setError(new Error('API is not available. Please try again later.'));
-          setLoading(false);
-        });
+        }).finally(() => setLoading(false))
     }
   }, [id, navigate]);
 
@@ -60,14 +58,18 @@ const Dashboard = () => {
         <div className="left-content">
           <Activity sessions={activity} />
           <div className="bottom-content">
-            <AverageSession sessions={averageSessions} />
+            <div className="average-session-container">
+              <span>Durée moyenne des sessions</span>
+              <AverageSession sessions={averageSessions} />
+            </div>
+
             <Performance data={performance} />
             <Score score={user.score} />
           </div>
         </div>
         <div className="right-content">
           <Keydata keyDatas={user.keyDatas} />
-        
+
         </div>
       </div>
     </div>
